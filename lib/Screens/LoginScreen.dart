@@ -186,8 +186,10 @@ class _LoginScreenState extends State<LoginScreen> {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     email = sp.getString("rem_email").toString();
     password = sp.getString("rem_pass").toString();
-    email_controller.text = email;
-    password_controller.text = password;
+    if(email !="null" && email !=null && password !="null" && password !=null){
+      email_controller.text = email;
+      password_controller.text = password;
+    }
   }
 
   SavemainAuthSave() async {
