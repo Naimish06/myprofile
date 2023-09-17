@@ -5,10 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:myprofile/Screens/Dashboard.dart';
 import 'package:myprofile/Screens/LoginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart' show kIsWeb, kIsweb;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyAzS-E2dbxMsqaP6Cib84N4auN6-Uyo2iw",
+            appId: "1:369230450620:web:5e86796a703529866925b9",
+            messagingSenderId: "369230450620",
+            projectId: "myprofile-2150a")
+    );
+  }else{
+    await Firebase.initializeApp();
+
+  }
   runApp(const MyAPP());
 }
 
