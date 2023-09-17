@@ -147,9 +147,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       child: TextButton(
                         child: Text('Google'),
-                        onPressed: () {
-                         final da= signinwithGoogle();
+                        onPressed: () async{
+                         final da=await signinwithGoogle();
                          if(da !="" && da !=null){
+                           SavemainAuthSave();
                            loginBloc.add(LoginbtnClickEvent(
                                "naimishrafaliya8850@gmail.com",
                                "Naimish",
